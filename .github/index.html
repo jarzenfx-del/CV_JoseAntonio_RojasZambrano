@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Rojas Zambrano | Abogado · Ciberseguridad · DPD · Negocios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        .profile-pic {
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            border: 3px solid #64ffda;
+            margin-bottom: 20px;
+            background-color: #112240;
+            display: flex; align-items: center; justify-content: center;
+            margin-left: auto; margin-right: auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+        }
+        .profile-pic img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        h1 { font-size: 2.8rem; color: #e6f1ff; }
+        .title { font-size: 1.4rem; color: #64ffda; margin-bottom: 15px; }
+        .subtitle { font-size: 1rem; color: #8892b0; margin-bottom: 20px; }
+        .summary {
+            max-width: 800px; margin: 20px auto;
+            font-size: 1.1rem; color: #8892b0;
+            border-left: 3px solid #64ffda; padding-left: 20px; text-align: left;
+        }
+        .lang-tags { margin: 15px 0; }
+        .lang-tags span, .soft-skill {
+            background: #112240; color: #64ffda;
+            padding: 5px 12px; border-radius: 15px;
+            margin: 4px 5px; font-size: 0.8rem;
+            border: 1px solid #64ffda;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .contact-links { margin-top: 20px; }
+        .contact-links a {
+            color: #64ffda; margin: 5px 10px; font-size: 1.2rem;
+            text-decoration: none; transition: 0.3s;
+            display: inline-block;
+        }
+        .contact-links a:hover { color: #fff; transform: translateY(-3px); }
+
+        h2 {
+            font-size: 2rem; color: #e6f1ff;
+            margin: 40px 0 20px;
+            display: flex; align-items: center;
+        }
+        h2 i { margin-right: 15px; color: #64ffda; }
+        .section-line { border-bottom: 1px solid #233554; margin-bottom: 30px; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+        .skill-container { margin-bottom: 15px; }
+        .skill-bar {
+            background: #112240; border-radius: 5px;
+            overflow: hidden; height: 8px; width: 100%;
+        }
+        .skill-fill {
+            height: 100%; background: #64ffda;
+            border-radius: 5px; width: 0%;
+            transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+        }
+        .skill-info { display: flex; justify-content: space-between; padding: 5px 0; font-size: 0.9rem; }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #64ffda;
+            list-style: none;
+        }
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px; top: 5px;
+            width: 12px; height: 12px;
+            background: #64ffda; border-radius: 50%;
+            border: 2px solid #0a192f;
+        }
+        .date { font-size: 0.9rem; color: #64ffda; font-weight: bold; }
+        .job-title { font-weight: bold; color: #e6f1ff; font-size: 1.1rem; }
+        .company { color: #8892b0; font-style: italic; }
+        .job-desc { color: #8892b0; font-size: 0.95rem; margin-top: 5px; }
+
+        .card {
+            background: #112240; padding: 20px;
+            border-radius: 8px; border-top: 3px solid #64ffda;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.5);
+        }
+        .card h3 { color: #e6f1ff; margin-bottom: 10px; font-size: 1.1rem; }
+        .card p { color: #8892b0; font-size: 0.95rem; }
+
+        footer {
+            text-align: center; padding: 40px 0;
+            color: #8892b0; font-size: 0.9rem;
+            border-top: 1px solid #233554; margin-top: 40px;
+        }
+        .warning { color: #ffd700; font-size: 0.85rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .tags-container { margin: 20px 0; text-align: center; }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+            .title { font-size: 1.2rem; }
+            .summary { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-pic">
+                <img src="perfil.jpg" alt="Foto de perfil de Jose Rojas Zambrano" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="font-size: 3rem; color: #64ffda; display: none;">JR</span>
+            </div>
+            <h1>Jose Rojas Zambrano</h1>
+            <p class="title">Abogado · Cybersecurity & Data Protection Specialist · DPD</p>
+            <p class="subtitle">Representante Legal · Delegado de Protección de Datos · Redactor Técnico</p>
+            
+            <div class="summary">
+                Abogado (UTM) + Egresado en Ingeniería Comercial (PUCE). Tecnólogo en Ciberseguridad (ISTS). 
+                Experto en Protección de Datos Personales, compliance GDPR/LGPD/LOPD, ciberseguridad jurídica, 
+                peritaje forense digital y gobernanza tecnológica. Construyo puentes entre derecho, tecnología y 
+                comunicación estratégica para organizaciones resilientes. Bilingüe español/inglés (B2).
+            </div>
+            
+            <div class="lang-tags">
+                <span>🇪🇨 Ecuatoriano</span>
+                <span>🇪🇸 Español Nativo</span>
+                <span>🇬🇧 English B2</span>
+                <span>🇨🇳 中文 Intermedio</span>
+            </div>
+
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/jose-rojas-zambrano-8b684620b/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://www.facebook.com/jose.a.rojas.18847" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="mailto:Abogadorz593@gmail.com"><i class="fas fa-envelope"></i> Correo</a>
+                <a href="tel:+593997022883"><i class="fas fa-phone-alt"></i> Llamadas</a>
+                <a href="https://wa.me/593992080730" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <p style="color: #64ffda; font-size: 0.9rem; margin-top: 15px;">
+                📍 Juan Montalvo 704 y 10ma norte, Machala, El Oro, Ecuador
+            </p>
+        </header>
+
+        <h2><i class="fas fa-cogs"></i> Competencias Clave</h2>
+        <div class="section-line"></div>
+        
+        <h3 style="color: #64ffda; margin-bottom: 15px;">🔒 Ciberseguridad & Protección de Datos</h3>
+        <div class="grid-3">
+            <div class="skill-container">
+                <div class="skill-info"><span>GDPR / LOPD / LGPD</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-info"><span>ISO 27001 / 27701 / 29100</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-info"><span>Ciberseguridad Jurídica</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-info"><span>Análisis de Riesgos (FAIR)</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-info"><span>OWASP / Seguridad Web</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-info"><span>Blockchain & IA Ética</span><span>75%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+            </div>
+        </div>
+
+        <h3 style="color: #64ffda; margin-top: 30px;">📋 Gestión, Derecho & Habilidades Directivas</h3>
+        <div class="tags-container">
+            <span class="soft-skill">Planificación estratégica</span>
+            <span class="soft-skill">Liderazgo</span>
+            <span class="soft-skill">Coordinación de equipos</span>
+            <span class="soft-skill">Dirección de personal</span>
+            <span class="soft-skill">Resolución de conflictos</span>
+            <span class="soft-skill">Mentalidad emprendedora</span>
+            <span class="soft-skill">Perfil analítico</span>
+            <span class="soft-skill">Excelente comunicación</span>
+            <span class="soft-skill">Compromiso</span>
+            <span class="soft-skill">Proactividad</span>
+            <span class="soft-skill">Derecho laboral</span>
+            <span class="soft-skill">Derecho administrativo</span>
+            <span class="soft-skill">Negociación</span>
+            <span class="soft-skill">Arbitraje</span>
+            <span class="soft-skill">Compliance UAFE</span>
+        </div>
+
+        <h2><i class="fas fa-briefcase"></i> Trayectoria Profesional</h2>
+        <div class="section-line"></div>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <span class="date">Ene 2026 - Presente</span>
+                <div class="job-title">Delegado de Protección de Datos</div>
+                <div class="company">Agencia Ecuatoriana de Protección de Datos Personales · Ecuador (Híbrido)</div>
+                <p class="job-desc">Supervisión del cumplimiento normativo y gestión de riesgos en protección de datos personales a nivel nacional.</p>
+            </li>
+            <li class="timeline-item">
+                <span class="date">Ago 2025 - Presente</span>
+                <div class="job-title">Redactor Publicitario / Delegado de Protección de Datos</div>
+                <div class="company">Fundación ACL (Asistencia para el Cumplimiento Legal) · Machala (Híbrido)</div>
+                <p class="job-desc">Redacción de copy para campañas digitales de security awareness, comunicados post-incidente, divulgación sobre protección de datos y coordinación editorial con IA. Traducción de requisitos legales complejos a guías prácticas para instituciones educativas.</p>
+            </li>
+            <li class="timeline-item">
+                <span class="date">Nov 2023 - Presente</span>
+                <div class="job-title">Representante Legal</div>
+                <div class="company">EXCOMECUADOR S.A.S. · El Guabo, El Oro (Híbrido)</div>
+                <p class="job-desc">Planificación, dirección y control de actividades administrativas, comerciales, operativas y financieras. Gestión de conflictos y representación institucional. Aprovechamiento eficaz de recursos materiales y humanos en el sector agroexportador.</p>
+            </li>
+            <li class="timeline-item">
+                <span class="date">Jul 2021 - Presente</span>
+                <div class="job-title">Asesor Jurídico (Libre Ejercicio Profesional)</div>
+                <div class="company">ConfiLegal Services · Machala (Remoto)</div>
+                <p class="job-desc">Redacción de demandas, contestaciones y recursos. Seguimiento de procesos judiciales y administrativos. Defensa de Derechos del Consumidor y Comunidades del Agro. Trámites registrales y notariales.</p>
+            </li>
+            <li class="timeline-item">
+                <span class="date">Nov 2024 - Nov 2025</span>
+                <div class="job-title">Delegado de Protección de Datos</div>
+                <div class="company">SISCROPS S.A.S. B.I.C. · Machala</div>
+                <p class="job-desc">Supervisé el cumplimiento normativo (LOPD, RGPD referencial). Realicé EIPD, gestión de riesgos y capacitación al personal. Elaboré registros de actividades de tratamiento, cláusulas contractuales y protocolos de brechas.</p>
+            </li>
+            <li class="timeline-item">
+                <span class="date">Ago 2022 - Feb 2023</span>
+                <div class="job-title">Asistente Administrativo Ejecutivo</div>
+                <div class="company">Consejo Nacional Electoral del Ecuador</div>
+                <p class="job-desc">Revisión de correos, elaboration de escritos, atención al público y evacuación de solicitudes.</p>
+            </li>
+            <li class="timeline-item">
+                <span class="date">Mar 2017 - Mar 2018</span>
+                <div class="job-title">Administrativo de Nóminas</div>
+                <div class="company">Harbin Electric Company Limited · Sarayunga</div>
+                <p class="job-desc">Elaboración de roles de pago, finiquitos, informes de gestión y documentos varios.</p>
+            </li>
+        </ul>
+
+        <h2><i class="fas fa-graduation-cap"></i> Formación Académica</h2>
+        <div class="section-line"></div>
+        <div class="grid-2">
+            <div class="card"><h3>Abogado de los Tribunales del Ecuador</h3><p>Universidad Técnica de Machala · 2016 - 2021</p><p>Derecho, argumentación jurídica y ética profesional.</p></div>
+            <div class="card"><h3>Bachelor of Technology en Ciberseguridad</h3><p>Instituto Tecnológico Sudamericano · 2025 - 2028</p><p>Análisis de vulnerabilidades, gestión de incidentes, criptografía.</p></div>
+            <div class="card"><h3>Diplomado en Ciberseguridad y Ciberdefensa</h3><p>Universidad Autónoma de Chile · 2025 - 2026</p><p>Riesgos y amenazas del ciberespacio, defensa y aspectos jurídicos.</p></div>
+            <div class="card"><h3>Programa Profesionalizante de Delegados de Protección de Datos</h3><p>Universidad ECOTEC · 2026</p><p>ISO 27001, ISO 27701, OWASP, EIPD, gestión de riesgos. (Aval SPDP)</p></div>
+            <div class="card"><h3>MOOC en Ciberseguridad</h3><p>Universidad de Málaga (INCIBE - NextGenEU) · 2025 - 2026</p><p>Criptografía, ingeniería social, malware, blockchain, computación cuántica.</p></div>
+            <div class="card"><h3>BBA en Administración de Empresas</h3><p>Pontificia Universidad Católica del Ecuador · Egresado 2015</p><p>Gestión empresarial, finanzas, mercadeo y liderazgo.</p></div>
+        </div>
+
+        <h2><i class="fas fa-certificate"></i> Certificaciones y Acreditaciones</h2>
+        <div class="section-line"></div>
+        <div class="grid-3">
+            <div class="card" style="border-top-color: #ffd700;"><h3>CISSP</h3><p>Certified Information Systems Security Professional</p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>Oficial de Cumplimiento UAFE</h3><p>Titular/Suplente (2026 - 2027). Unidad de Análisis Financiero y Económico.</p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>Delegado de Protección de Datos</h3><p>ECOTEC · Avalado por la Superintendencia de Protección de Datos Personales.</p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>Ley 19.628 Chile</h3><p>Protección de Datos (GRC Campus, 2026)</p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>Diplomado en Liderazgo y Habilidades Gerenciales con IA</h3><p>Universidad Santander (2025)</p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>EF SET English Certificate B2</h3><p>Upper Intermediate (58/100)</p></div>
+        </div>
+
+        <h2><i class="fas fa-hands-helping"></i> Comunidad y Voluntariado</h2>
+        <div class="section-line"></div>
+        <div class="grid-2">
+            <div class="card"><h3>Asociado - ASICI</h3><p>Asociación Internacional de Ciberseguridad. Colaboración global frente a desafíos del ciberespacio.</p></div>
+            <div class="card"><h3>ELIXIR Member</h3><p>Life Science Community. Train-the-Trainer (TtT) instructor's community.</p></div>
+        </div>
+
+        <h2><i class="fas fa-users"></i> Referencias Personales</h2>
+        <div class="section-line"></div>
+        <div class="grid-3">
+            <div class="card" style="border-top-color: #ffd700;"><h3>Ing. Maricela Vintimilla</h3><p><a href="tel:+593985700549" style="color:#64ffda;">098-570-0549</a></p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>Abg. Madeline Córdoba</h3><p><a href="tel:+593939157040" style="color:#64ffda;">093-915-7040</a></p></div>
+            <div class="card" style="border-top-color: #ffd700;"><h3>Ing. Danilo Solano</h3><p><a href="tel:+593995029027" style="color:#64ffda;">099-502-9027</a></p></div>
+        </div>
+
+        <footer>
+            <p>📱 Escanea el código QR de mi tarjeta para volver a esta página o conectar en redes.</p>
+            <p style="margin-top: 15px;">© 2026 Jose Rojas Zambrano · Machala, Ecuador</p>
+            <p class="warning">La información de contacto telefónico es pública solo con fines profesionales. Por favor, no usar para spam.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animación dinámica para las barras de habilidades al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const fills = document.querySelectorAll('.skill-fill');
+                fills.forEach(fill => {
+                    const width = fill.getAttribute('data-width');
+                    fill.style.width = width;
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
